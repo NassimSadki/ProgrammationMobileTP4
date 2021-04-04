@@ -14,6 +14,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.myapplication.R;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Locale;
 
 /**
@@ -31,15 +33,18 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         mContext = context;
     }
 
+    @NotNull
     @Override
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return NatureFragment.newInstance(0, mContext.getString(R.string.titre_section0));
+                return SeasonFragment.newInstance(0, mContext.getString(R.string.titre_section0));
             case 1:
-                return NatureFragment.newInstance(1, mContext.getString(R.string.titre_section1));
+                return SeasonFragment.newInstance(1, mContext.getString(R.string.titre_section1));
             case 2:
-                return NatureFragment.newInstance(2, mContext.getString(R.string.titre_section2));
+                return SeasonFragment.newInstance(2, mContext.getString(R.string.titre_section2));
+            case 3:
+                return SeasonFragment.newInstance(3, mContext.getString(R.string.titre_section3));
         }
         return null;
     }
@@ -49,27 +54,30 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         Locale l = Locale.getDefault();
         String titre="";
-        Drawable icone=null;
+        //Drawable icone=null;
         switch (position) {
             case 0:
                 titre = mContext.getString(R.string.titre_section0).toUpperCase(l);
-                icone = mContext.getResources().getDrawable(R.drawable.mineral);
+                //icone = mContext.getResources().getDrawable(R.drawable.mineral);
                 break;
             case 1:
                 titre = mContext.getString(R.string.titre_section1).toUpperCase(l);
-                icone = mContext.getResources().getDrawable(R.drawable.vegetal);
+                //icone = mContext.getResources().getDrawable(R.drawable.vegetal);
                 break;
             case 2:
                 titre = mContext.getString(R.string.titre_section2).toUpperCase(l);
-                icone = mContext.getResources().getDrawable(R.drawable.animal);
+                //icone = mContext.getResources().getDrawable(R.drawable.animal);
+                break;
+            case 3:
+                titre = mContext.getString(R.string.titre_section3).toUpperCase(l);
                 break;
         }
         SpannableString sb = new SpannableString(" " + titre);
         // un espace est ajouté pour séparer le texte de l'image
 
-        icone.setBounds(0, 0, icone.getIntrinsicWidth(), icone.getIntrinsicHeight());
+        /*icone.setBounds(0, 0, icone.getIntrinsicWidth(), icone.getIntrinsicHeight());
         ImageSpan span = new ImageSpan(icone, ImageSpan.ALIGN_BASELINE);
-        sb.setSpan(span, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        sb.setSpan(span, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);*/
 
         return sb;
     }
@@ -78,7 +86,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Nombre de pages à considérer.
-        return 3;
+        //return 3;
+        return 4;
     }
 
 

@@ -5,7 +5,13 @@
     <string name="action_settings">settings</string>
     <string name="action_share">share</string>
     <string name="action_info">info</string>
+    <!--
     <string name="titre_section0">Minéraux</string>
     <string name="titre_section1">Végétaux</string>
     <string name="titre_section2">Animaux</string>
+    -->
+    <string name="titre_section0">printemps</string>
+    <string name="titre_section1">ete</string>
+    <string name="titre_section2">automne</string>
+    <string name="titre_section3">hiver</string>
 </resources>
